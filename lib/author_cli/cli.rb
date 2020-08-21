@@ -1,7 +1,7 @@
-class Author_cli::Cli 
+ class AuthorCli::Cli 
    
     def greeting
-        "Hello, and welcome to the Goodreads author Cli!"
+        puts "Hello, and welcome to the Goodreads author Cli!"
     end
     
 end

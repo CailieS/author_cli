@@ -1,4 +1,4 @@
 require_relative "../lib/environment.rb"
-
-
-puts "Hello!"
+#require_relative "../lib/author_cli/cli.rb"
+#puts "Hello!"
+AuthorCli::Cli.new.greeting
