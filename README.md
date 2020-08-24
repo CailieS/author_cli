@@ -2,6 +2,8 @@
 
 This is a CLI data gem project test for the 7/6 Cohort for the Flatiron School!
 
+Enter the title of a book and recieve a New York Times review on that title. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
