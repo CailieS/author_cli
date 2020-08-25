@@ -2,9 +2,9 @@ require_relative "../lib/environment.rb"
 
 
 require json
-require uri
-require net/http
-require open-uri 
+#require uri
+#require net/http
+#require open-uri 
 
 class Authorcli::Api
  attr_accessor :title
@@ -15,8 +15,8 @@ class Authorcli::Api
     end
 
     def fetch_data
-        url = "https://api.nytimes.com/svc/books/v3/reviews.json"
-      
+        url = "https://api.nytimes.com/svc/books/v3/reviews.json?title=#{title}"
+        respons = HTTParty.get(url)
         response.parsed_response #may be unnecessary
         title = response["main"]["review"]
         review = response["title"]
