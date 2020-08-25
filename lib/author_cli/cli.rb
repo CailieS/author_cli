@@ -1,9 +1,10 @@
+ require 'pry'
  class AuthorCli::Cli 
    
-    def greeting
+    def call
         puts "Hello, and welcome to the Goodreads author Cli! Please enter an authors name and receive their book reviews."
         puts "To exit the program, enter exit."
-        Api.get_data
+        API.get_data
         menu
      end
    end
@@ -32,8 +33,6 @@
 
     def author_selection(author)
         puts "#{authors}"
-        #go over author array and find the author selected
-
     end
 
     def goodbye

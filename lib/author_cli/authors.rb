@@ -3,7 +3,7 @@ class Authors
 
     def initialize(attr_hash)
     attr_hash.each do |x, y|
-    self.send("#{k}=", y) if self.respond_to?("#{k}=")
+    self.send("#{x}=", y) if self.respond_to?("#{x}=")
     end
     save
     end
