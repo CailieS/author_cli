@@ -16,10 +16,11 @@ class Authorcli::Api
 
     def fetch_data
         url = "https://api.nytimes.com/svc/books/v3/reviews.json?title=#{title}"
-        respons = HTTParty.get(url)
+      
+        response = HTTParty.get(url)
         response.parsed_response #may be unnecessary
-        title = response["main"]["review"]
-        review = response["title"]
-        turn into objects, fill out information related to the title/review information
+       #parsed_data = JSON.parse(response.body)
+        #review = parsed_data["title"]
+        #turn into objects, fill out information related to the title/review information
     end
 end
