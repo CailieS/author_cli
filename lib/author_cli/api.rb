@@ -31,12 +31,3 @@ class AuthorCli::API
     binding.pry
 end
 
-#def self.get_data
-   # response = RestClient.get("https://api.nytimes.com/svc/books/v3/names.json")
-    
-    #author_array = JSON.parse(response.body)["results"]
-    #author_array.each do |author|
-     #   Author.new(author)
-      #  binding.pry
-    #end
-#end
