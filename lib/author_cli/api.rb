@@ -1,27 +1,34 @@
 require 'pry'
-require_relative "../lib/environment.rb"
+require_relative "../environment.rb"
+require_relative "./version.rb"
 
-require json
+require 'json'
 #require uri
 require 'httparty'
 #require open-uri 
 
-class Authorcli::API
- attr_accessor :author 
-    def initialize(author)
-        @author = author
-        @key = [QPGP53kmsToQQAzsQfnhDKqqZFGbgg50]
-        @URL = [https://api.nytimes.com/svc/books/v3/reviews.json]
-    end
+class AuthorCli::API
+#  attr_accessor :first, :last, :key 
+#     def initialize(first, last, key)
+#         @first = first
+#         @last = last
+#         @key = "QPGP53kmsToQQAzsQfnhDKqqZFGbgg50"
+#         @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{@first}+#{@last}&api-key=#{key}"
+#     end
 
     def self.get_data
-       url = "https://api.nytimes.com/svc/books/v3/reviews.json"
+        @first = "Michelle"
+        @last = "Obama"
+        @key = "QPGP53kmsToQQAzsQfnhDKqqZFGbgg50"
+        @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{@first}+#{@last}&api-key=#{@key}"
        binding.pry
-       response = HTTParty.get(url)
-       response.parsed_response #may be unnecessary
+       response = HTTParty.get(@URL)
+       parsed = response.parsed_response #may be unnecessary
        parsed_data = JSON.parse(response.body)
-       review = parsed_data["author"]
+       
+       
     end
+    binding.pry
 end
 
 #def self.get_data
@@ -32,4 +39,4 @@ end
      #   Author.new(author)
       #  binding.pry
     #end
-end
+#end

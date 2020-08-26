@@ -16,9 +16,9 @@ class Authors
         @@all
     end
 
-    def self.find_by_name(name)
-        self.all.select do |author|
-            author.name == name
+    def self.find_by_name(title)
+        self.all.select do |title|
+            title.name == name
         end
     end
 end
