@@ -24,7 +24,7 @@ class Book
     end
 
     def add_title(title)
-        @add_title << title
+        @title << title
     end
    
 end
