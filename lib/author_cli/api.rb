@@ -21,12 +21,12 @@ class AuthorCli::API
         @last = "Obama"
         @key = "QPGP53kmsToQQAzsQfnhDKqqZFGbgg50"
         @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{@first}+#{@last}&api-key=#{@key}"
-       #binding.pry
        response = HTTParty.get(@URL)
-       parsed = response.parsed_response #may be unnecessary
+       parsed = response.parsed_response 
        parsed_data = JSON.parse(response.body)
-       
-       
+       #parsed_data.each do |book|
+       #Book.new(book)
+       #end
     end
    # binding.pry
 end

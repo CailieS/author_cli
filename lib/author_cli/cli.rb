@@ -11,11 +11,11 @@
 
    def menu
     input = gets.strip.downcase
-    #binding.pry
+    binding.pry
     if AuthorCli::API.get_data != nil
-    #binding.pry
-       book_list
-       menu
+        #binding.pry
+    book_list
+    menu
     elsif input == "exit"
        puts "See you later!"
     else 
@@ -28,15 +28,13 @@
         Book.all.each_with_index do |book, index|
         puts "#{index+1}.#{book.name}"
     end
-        puts " "
-        puts " "
         puts "Which books would you like a synopsis for?"
-        input = gets.strip.downcase
+        input = gets.strip.capitalize
         book_selection(input)
   end
 
     def book_selection(title)
-       puts "#{titles}"
+       puts "#{title}"
     end
 
    def goodbye
