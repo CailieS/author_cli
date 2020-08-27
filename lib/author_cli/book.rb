@@ -1,6 +1,7 @@
 require 'pry'
 class Book
     attr_accessor :title
+    @@all = []
     def initialize(attr_hash)
     attr_hash.each do |x, y|
     self.send("#{x}=", y) if self.respond_to?("#{x}=")
@@ -23,6 +24,9 @@ class Book
         end
     end
 
+    def title
+        
+    end
     def add_title(title)
         @title << title
     end

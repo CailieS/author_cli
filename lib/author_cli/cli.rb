@@ -1,3 +1,4 @@
+#require_relative "./version.rb"
  require 'pry'
  class AuthorCli::Cli 
    
@@ -10,7 +11,8 @@
 
    def menu
     input = gets.strip.downcase
-    if AuthorCLI::API.get_data != nil
+    #binding.pry
+    if AuthorCli::API.get_data != nil
     #binding.pry
        book_list
        menu
@@ -23,7 +25,6 @@
   end
 
    def book_list
-    
         Book.all.each_with_index do |book, index|
         puts "#{index+1}.#{book.name}"
     end
@@ -42,5 +43,6 @@
      puts "Goodbye!"
    end
        
-#binding.pry
+
+   #binding.pry
 end
