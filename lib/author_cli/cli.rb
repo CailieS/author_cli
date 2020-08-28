@@ -10,10 +10,9 @@
  
 
    def menu
-    input = gets.strip.downcase
-    if AuthorCli::API.get_data != nil
-        #binding.pry
-       book_list
+    input = gets.strip.downcase.split(" ") 
+    if AuthorCli::API.get_data(input[0], input[1]) != nil
+       book_list(AuthorCli::API.get_data(input[0], input[1]))
        menu
     elsif input == "exit"
         goodbye
@@ -23,9 +22,9 @@
     end
   end
 
-   def book_list
-    #binding.pry
-      Book.all.each_with_index do |book, index|
+   def book_list(books)
+   binding.pry
+      books.each_with_index do |book, index|
         #list all the books for the particular author that was just queried, rather than ALL the books
         puts "#{index+1}.#{book.title}"
       end

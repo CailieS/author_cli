@@ -6,7 +6,7 @@ class Book
     def initialize(attr_hash)
         attr_hash.each do |x, y|
             self.send("#{x}=", y) if self.respond_to?("#{x}=")
-            #title = []
+            #@author = []
         end
         save
     end
@@ -25,8 +25,8 @@ class Book
        end
     end
 
-   def add_title(title)
-        @title << title
-   end
+  # def add_title(author)
+   #     @author << title
+   #end
    
 end

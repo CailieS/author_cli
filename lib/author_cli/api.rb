@@ -16,21 +16,25 @@ class AuthorCli::API
 #         @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{@first}+#{@last}&api-key=#{key}"
 #     end
 
-    def self.get_data
-        @first = "Michelle"
-        @last = "Obama"
+    def self.get_data(first, last)
         @key = "QPGP53kmsToQQAzsQfnhDKqqZFGbgg50"
-        @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{@first}+#{@last}&api-key=#{@key}"
+        @URL = "https://api.nytimes.com/svc/books/v3/reviews.json?author=#{first}+#{last}&api-key=#{@key}"
        response = HTTParty.get(@URL)
        parsed = response.parsed_response 
        parsed_data = JSON.parse(response.body)
-       hash = {}
-       hash["title"] = parsed_data["results"][0]["book_title"]
-       hash["author"] = parsed_data["results"][0]["book_author"]
-       hash["summary"] = parsed_data["results"][0]["summary"]
+       books = []
+       parsed_data["results"].each do |book|
+
+       binding.pry
+        hash = {}
+        hash["title"] = book["book_title"]
+        hash["author"] = book["book_author"]
         #binding.pry
-        Book.new(hash)
+        hash["summary"] = book["summary"]
+        new_book = Book.new(hash)
+        books << new_book
+      end
+      books
     end
-   # binding.pry
 end
 
