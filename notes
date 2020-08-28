@@ -1,0 +1,13 @@
+- different input situations:
+
+cause: valid author
+effect: book list --> getting more input --> book_selection
+
+cause: "exit"
+effect: goobye (which should call the exit method)
+
+cause: invalid author
+effect: call, which asks once again for user input
+
+cause: invalid book selection input
+effect: try again

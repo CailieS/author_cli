@@ -1,14 +1,14 @@
 require 'pry'
 class Book
-    attr_accessor :title
+    attr_accessor :title, :author, :summary
     @@all = []
     
     def initialize(attr_hash)
-    attr_hash.each do |x, y|
-    self.send("#{x}=", y) if self.respond_to?("#{x}=")
-    #title = []
-    end
-    save
+        attr_hash.each do |x, y|
+            self.send("#{x}=", y) if self.respond_to?("#{x}=")
+            #title = []
+        end
+        save
     end
 
     def save

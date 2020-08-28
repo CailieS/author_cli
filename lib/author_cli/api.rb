@@ -24,9 +24,12 @@ class AuthorCli::API
        response = HTTParty.get(@URL)
        parsed = response.parsed_response 
        parsed_data = JSON.parse(response.body)
-       #parsed_data.each do |book|
-       #Book.new(book)
-       #end
+       hash = {}
+       hash["title"] = parsed_data["results"][0]["book_title"]
+       hash["author"] = parsed_data["results"][0]["book_author"]
+       hash["summary"] = parsed_data["results"][0]["summary"]
+        #binding.pry
+        Book.new(hash)
     end
    # binding.pry
 end
