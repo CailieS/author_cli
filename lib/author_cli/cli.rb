@@ -1,5 +1,5 @@
-#require_relative "./version.rb"
- require 'pry'
+require_relative "./version.rb"
+require 'pry'
  class AuthorCli::Cli 
    
     def call
@@ -23,27 +23,46 @@
   end
 
    def book_list(books)
-   binding.pry
       books.each_with_index do |book, index|
-        #list all the books for the particular author that was just queried, rather than ALL the books
         puts "#{index+1}.#{book.title}"
       end
         input = gets.strip.capitalize
       if input == "Exit"
         goodbye
-      else 
-        puts "Which books would you like a synopsis for?"
+      else
+        puts "Which book would you like a synopsis for?"
+        input = gets.strip
+        #summary(input)
       end
-        book_selection(input)
-    end
+   end
 
-   #def author_selection(name)
-    #puts "#{name}"
-   #end
+#     def summary(title)
+#         
 
-    def book_selection(title)
-       puts "#{title}"
-    end
+
+   #title = Book.find_by_name(title)
+#         binding.pry
+#         #title.each do |t|
+      
+#    end
+
+
+
+
+
+    # def book_selection(input)
+    #     if input.to_i.between?(1, Book.all.count)
+    #         book = book_list.all[input.to_i - 1]
+    #      if book == nil
+    #         puts "Oh no! It looks like the book you chose is unavailable. Please try again!"
+    #         book_list
+    #      end
+    #     end
+    # end
+
+    # def summary
+    #     input = hash["summary"] = book["summary"]
+    # end
 
     def invalid_entry
         puts "That's invalid! Please try again."
@@ -54,6 +73,12 @@
      exit
    end
        
-
+   #def another_book
+    #puts "Would you like to choose another book? Type 'Y' for more or 'N' to exit"
+    #input = gets.strip
+    #if input == "y".downcase
+     #   menu
+    #end
+   #end
    #binding.pry
 end

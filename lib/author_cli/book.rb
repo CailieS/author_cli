@@ -21,12 +21,10 @@ class Book
 
     def self.find_by_name(title)
        self.all.select do |title|
-          title.name == name
+          title.name.downcase == title
        end
     end
 
-  # def add_title(author)
-   #     @author << title
-   #end
+  
    
 end
