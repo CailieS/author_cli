@@ -12,7 +12,7 @@ class AuthorCli::Cli
    def menu
     input = gets.strip.downcase.split(" ") 
     if AuthorCli::API.get_data(input[0], input[1]) != nil
-       book_list(AuthorCli::API.get_data(input[0], input[1]))
+       book_list
        menu
     elsif input == "exit"
         goodbye
@@ -22,25 +22,21 @@ class AuthorCli::Cli
     end
   end
 
-   def book_list(books)
-      books.each_with_index do |book, index|
+   def book_list
+     AuthorCli::Book.all.each_with_index do |book, index|
         puts "#{index+1}.#{book.title}"
       end
-        input = gets.strip.capitalize
-      if input == "Exit"
-        goodbye
-      elsif input != "Exit"
-        puts "Which book would you like a synopsis for?"
-        input = gets.strip.downcase
-        summary(input)
-      end
+     puts "Which book would you like a synopsis for?"
+     input = gets.strip.downcase
+     if input == 'exit'
+       goodbye
+     else
+       summary(AuthorCli::Book.all[input.to_i - 1].title)
+     end
    end
 
      def summary(title)
-        title = Book.find_by_name(title)
-        # title.each do |t|
-        # puts "#{t}"
-        # end
+       AuthorCli::Book.find_by_name(title).summary
      end
    
 
