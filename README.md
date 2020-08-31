@@ -1,8 +1,6 @@
 # AuthorCli
 
-This is a CLI data gem project test for the 7/6 Cohort for the Flatiron School!
-
-Enter the title of a book and recieve a New York Times review on that title. 
+Welcome to the New York Times book summary Cli! Type in an authors name and choose from a list of their books to get a summary.  
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Enter the following code to run this program
+
+    $ bin/authorcli
 
 ## Development
 
@@ -42,3 +42,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the AuthorCli project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/author_cli/blob/master/CODE_OF_CONDUCT.md).
+
