@@ -1,5 +1,5 @@
 require 'pry'
-class Book
+class AuthorCli::Book
     attr_accessor :title, :author, :summary
     @@all = []
     
@@ -36,6 +36,9 @@ class Book
            end
         end
     end
-  
+
+    def self.title_exists?(title)
+      all.find{|book| book.title == title }
+    end
    
 end
