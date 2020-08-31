@@ -19,12 +19,23 @@ class Book
         @@all
    end
 
-    def self.find_by_name(title)
-       self.all.select do |title|
-          title.name.downcase == title
-       end
-    end
+    # def self.find_by_name(title)
+    #    self.all.select do |title|
+    #       Book.name.downcase == name
+    #    end
+    # end
+    
+    def self.find_by_name(book_title) 
 
+        self.all.select do |t|
+             if t.title.downcase == book_title
+         
+        #binding.pry
+             puts "#{t.summary}"
+         else nil
+           end
+        end
+    end
   
    
 end

@@ -1,6 +1,6 @@
 require_relative "./version.rb"
 require 'pry'
- class AuthorCli::Cli 
+class AuthorCli::Cli 
    
     def call
         puts "Hello, and welcome to the New York Times author Cli! Please enter an authors name and receive their book information."
@@ -29,56 +29,29 @@ require 'pry'
         input = gets.strip.capitalize
       if input == "Exit"
         goodbye
-      else
+      elsif input != "Exit"
         puts "Which book would you like a synopsis for?"
-        input = gets.strip
-        #summary(input)
+        input = gets.strip.downcase
+        summary(input)
       end
    end
 
-#     def summary(title)
-#         
-
-
-   #title = Book.find_by_name(title)
-#         binding.pry
-#         #title.each do |t|
-      
-#    end
-
-
-
-
-
-    # def book_selection(input)
-    #     if input.to_i.between?(1, Book.all.count)
-    #         book = book_list.all[input.to_i - 1]
-    #      if book == nil
-    #         puts "Oh no! It looks like the book you chose is unavailable. Please try again!"
-    #         book_list
-    #      end
-    #     end
-    # end
-
-    # def summary
-    #     input = hash["summary"] = book["summary"]
-    # end
+     def summary(title)
+        title = Book.find_by_name(title)
+        # title.each do |t|
+        # puts "#{t}"
+        # end
+     end
+   
 
     def invalid_entry
         puts "That's invalid! Please try again."
     end
 
-   def goodbye
-     puts "Goodbye!"
-     exit
-   end
-       
-   #def another_book
-    #puts "Would you like to choose another book? Type 'Y' for more or 'N' to exit"
-    #input = gets.strip
-    #if input == "y".downcase
-     #   menu
-    #end
-   #end
-   #binding.pry
+   
+    def goodbye
+        puts "See you later!"
+    end
+ 
+#    #binding.pry
 end
