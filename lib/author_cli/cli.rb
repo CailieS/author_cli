@@ -35,9 +35,10 @@ class AuthorCli::Cli
      end
    end
 
-     def summary(title)
-       AuthorCli::Book.find_by_name(title).summary
-     end
+    def summary(title)
+      puts AuthorCli::Book.find_by_name(title).summary
+      book_list
+    end
    
 
     def invalid_entry
