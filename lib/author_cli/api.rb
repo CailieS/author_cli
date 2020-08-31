@@ -26,4 +26,3 @@ class AuthorCli::API
       end
     end
 end
-
