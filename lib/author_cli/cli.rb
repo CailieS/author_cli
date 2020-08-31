@@ -28,7 +28,11 @@ class AuthorCli::Cli
       end
      puts "Which book would you like a synopsis for?"
      input = gets.strip.downcase
-     summary(AuthorCli::Book.all[input.to_i - 1].title)
+     if input == 'exit'
+       goodbye
+     else
+       summary(AuthorCli::Book.all[input.to_i - 1].title)
+     end
    end
 
      def summary(title)
