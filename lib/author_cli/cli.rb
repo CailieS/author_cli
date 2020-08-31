@@ -26,21 +26,13 @@ class AuthorCli::Cli
      AuthorCli::Book.all.each_with_index do |book, index|
         puts "#{index+1}.#{book.title}"
       end
-        input = gets.strip.capitalize
-      if input == "Exit"
-        goodbye
-      elsif input != "Exit"
-        puts "Which book would you like a synopsis for?"
-        input = gets.strip.downcase
-        summary(input)
-      end
+     puts "Which book would you like a synopsis for?"
+     input = gets.strip.downcase
+     summary(AuthorCli::Book.all[input.to_i - 1].title)
    end
 
      def summary(title)
-        title = AuthorCli::Book.find_by_name(title)
-        # title.each do |t|
-        # puts "#{t}"
-        # end
+       AuthorCli::Book.find_by_name(title).summary
      end
    
 

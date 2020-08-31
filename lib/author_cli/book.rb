@@ -25,16 +25,8 @@ class AuthorCli::Book
     #    end
     # end
     
-    def self.find_by_name(book_title) 
-
-        self.all.select do |t|
-             if t.title.downcase == book_title
-         
-        #binding.pry
-             puts "#{t.summary}"
-         else nil
-           end
-        end
+    def self.find_by_name(book_title)
+      all.find{|book| book.title == book_title }
     end
 
     def self.title_exists?(title)
