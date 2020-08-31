@@ -1,3 +1,4 @@
+
 require 'pry'
 class AuthorCli::Book
     attr_accessor :title, :author, :summary
@@ -19,12 +20,6 @@ class AuthorCli::Book
         @@all
    end
 
-    # def self.find_by_name(title)
-    #    self.all.select do |title|
-    #       Book.name.downcase == name
-    #    end
-    # end
-    
     def self.find_by_name(book_title)
       all.find{|book| book.title == book_title }
     end
